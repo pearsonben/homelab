@@ -5,8 +5,8 @@ services:
     ports:
       - 13378:80
     volumes:
-      - /mnt/nas/media/audiobooks:/audiobooks
-      - ./podcasts:/podcasts
+      - ${AUDIOBOOKS}:/audiobooks
+      - ${PODCASTS}:/podcasts
       - ./config:/config
       - ./metadata:/metadata
     environment:
