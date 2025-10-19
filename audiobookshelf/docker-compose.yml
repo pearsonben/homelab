@@ -13,4 +13,7 @@ services:
       - TZ=Europe/London
 
 
-
+networks:
+  network1:
+    name: proxy_network
+    external: true
