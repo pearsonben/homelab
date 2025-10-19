@@ -6,8 +6,8 @@ services:
       - 13378:80
     volumes:
       - ${AUDIOBOOKS}:/audiobooks
-      - ./config:/config
-      - ./metadata:/metadata
+      - ${CONFIG}:/config
+      - ${METADATA}:/metadata
     environment:
       - TZ=Europe/London
     networks:
