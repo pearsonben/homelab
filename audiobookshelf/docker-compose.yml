@@ -6,14 +6,14 @@ services:
       - 13378:80
     volumes:
       - ${AUDIOBOOKS}:/audiobooks
-      - ${PODCASTS}:/podcasts
       - ./config:/config
       - ./metadata:/metadata
     environment:
       - TZ=Europe/London
-
+    networks:
+      - proxy
 
 networks:
-  network1:
+  proxy:
     name: proxy_network
     external: true
