@@ -3,9 +3,7 @@ services:
     image: jellyfin/jellyfin
     container_name: jellyfin
     networks:
-      - jellyfinnetwork
-    ports:
-      - 8096:8096
+      - proxy
     volumes:
       - ./config:/config
       - ./cache:/cache
@@ -14,19 +12,24 @@ services:
         target: /data
     restart: 'unless-stopped'
 
-  jellyseerr:
-    container_name: jellyseerr
-    image: fallenbagel/jellyseerr:latest
-    networks:
-      - jellyfinnetwork
-      - servarrnetwork
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - ./jellyseerr:/app/config
-    ports:
-      - 5055:5055
-    restart: unless-stopped
+  # jellyseerr:
+  #   container_name: jellyseerr
+  #   image: fallenbagel/jellyseerr:latest
+  #   networks:
+  #     - servarrnetwork
+  #     - proxy
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/London
+  #   volumes:
+  #     - ./jellyseerr:/app/config
+  #   ports:
+  #     - 5055:5055
+  #   restart: unless-stopped
 
+
+networks:
+  proxy:
+    name: proxy_network
+    external: true
