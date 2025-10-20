@@ -13,3 +13,7 @@ sudo mount -t nfs [nas-ip]:volume1/shared /mnt/nas
 ```bash
 [nas-ip]:/volume1/shared   /mnt/nas   nfs   defaults,_netdev   0   0
 ```
+
+### adguard home setup
+**ubuntu systemd resolve issue fix:**
+https://adguard-dns.io/kb/adguard-home/faq/#bindinuse
