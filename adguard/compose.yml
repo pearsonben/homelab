@@ -3,6 +3,7 @@ name: adguardhome
 services:
   adguardhome:
     container_name: adguardhome
+    restart: unless-stopped
     image: adguard/adguardhome
     ports:
       - 53:53/tcp # plain dns over tcp
